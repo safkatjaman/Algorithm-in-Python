@@ -51,5 +51,114 @@ def binary_search(list, find_value):
 
 nums = [10, 20, 30, 40, 50, 60, 70, 80, 90]
 searching = binary_search(nums, 60)
-
 print(searching)
+print('\n\n')
+
+
+
+                                                                                       #""" Recursion """#
+""" If a function calls itself it is called a recursive function. It is called recursive because it recursively calls itself. Recursion could make a complex problem simple. Recursion have two parts: 1) A stopping condition or base condition 2) Call the function itself. """
+
+""" Iterative Factorial """
+""" Explanation of below code:  """
+
+def factorial(n):
+      fact = 1 
+      for i in range(1, n+1):
+            fact = fact * i
+      return fact
+print(factorial(10))
+
+""" Recursive Factorial """
+""" Explanation of below code: You can see that we have passed a parameter which is 4 and it is bigger than 1 so if condition won't work after than it goes to else and the value of n is 4 as we are seeing the factorial(n-1) part the function will work again here and the value of n will be 3 there 3 * 2 is 6 and 4 * 6 is 24.. So the factorial of 4 is 24 """
+
+def factorial(n):
+      if n <= 1:
+            return 'Siam'
+      else:
+            return n * factorial(n - 1)
+
+print(factorial(1))
+print('\n\n')
+
+
+
+                                                                                    #""" Time Complexity """#
+""" Two pieces of code might do the same thing. However, one could be faster and another could be slower. The efficiency is the measure of the time taken by an algorithm while running. The comparison of time to measure the efficiency of an algorithm is called Time Complexity. """
+
+""" To measure the time complexity you need two things: 1) The input size 2) The growth rate. """
+
+""" When the time complexity changes linearly with the change of the number of input elements, the algorithm complexity is called O(n). It is read as 'Ohh an'. The time complexity O(n) has two parts: 1) Input size 'n' 2) Growth rate 'O'. A for loop has O(n) time complexity. """
+
+""" The time complexity of a nested loop is 'O(n^2)'. It is read as ohh an square. If you increase one element in the input list, the time will increase by a square of elements. This is called Quadratic Time Complexity """
+
+
+
+                                                                                     #""" Swap Variable """#
+""" This swap variable concept is easy. Just think that you want mango juice and your brother wants orange juice. Forgetfully your mom gave you orange juice in your glass and mango juice in your brothers' glass. now if she wants to give you mango juice in your glass she have to take another glass (a temporary glass) so that she can put that orange juice in that temporary glass and then that mango juice in your glass. after that she will put back that orange juice in your brothers' glass. That's how she swapped the juices. Like the example below, """
+
+yourJuice = 'Orange'
+brotherJuice = 'Mango'
+print('You got:', yourJuice, '\nBrother got:', brotherJuice)
+print('\n')
+tempGlass = yourJuice
+yourJuice = brotherJuice
+brotherJuice = tempGlass
+print('You got:', yourJuice, '\nBrother got:', brotherJuice)
+print('\n\n')
+
+
+
+                                                                                   #""" Range of Numbers """#
+""" If you write range(8). This range of numbers will stop at 8. You will see numbers from 0 - 7. If you write range(n). You will see numbers from 0 to n-1. Because it will stop at n. By default the range will start from 0. If you want the range start from another number other than 0, you will pass two parameters to the range function. """    
+
+for i in range(1, 20):
+      print('i =', i)
+print('\n\n')
+
+
+
+                                                                                     #""" Bubble Sort """#
+""" Bubble sort is the simplest sorting algorithm. The main concept is: 1) Compare two adjacent elements, 2) If the first item is bigger than the second item swap it, 3) Run the loop for n-1 items, 4) Keep doing it for all the elements.  """
+
+def bubbleSort(list):
+      n = len(list)
+      for i in range(n):
+            for j in range(n - 1):
+                  if list[j] > list[j + 1]:
+                        temp = list[j]
+                        list[j] = list[j + 1]
+                        list[j + 1] = temp
+      return list
+
+""" Testing """
+nums = [35, 8, 23, 14, 65, 20, 11, 99, 69]
+sortedNums = bubbleSort(nums)
+print(sortedNums)
+print('\n\n')
+
+
+
+                                                                                   #""" Selection Sort """#
+""" The selection sort workflow is like this, 1) For each position, loop the elements on the right, 2) Find the minimum numbers on the right, 3) Swap this two elements (Bring the minimum element to the current position and send the current element to the min element position), 4) Repeat steps from 1 to 3. """                                                                                   
+""" The outer loop is very simple. You run a simple for loop for all elements. Hence you will run it for range. """
+""" Inside the for loop, you will write another for loop to find out the minimum m=number. In simple cases, you will start with the first index and keep comparing all the way towards the end. """
+""" Put the inner loop inside the outer loop. The inner loop will start from the index (i + 1). Then check on the right side to find out the minimum element. That minimum will be swapped with the element at the position i. """
+""" Now swap the minimum item under the below nested loop. It's below not inside the loop """
+
+def selectionSort(arr):
+      for i in range(len(arr)):
+            min_index = i
+            for j in range(i+1, len(arr)):
+                  if arr[min_index] > arr[j]:
+                        min_index = j
+
+#Swap the current with the min element
+                  temp = arr[i]
+                  arr[i] = arr[min_index]
+                  arr[min_index] = temp
+      return arr
+#testing
+nums = [60, 34, 234, 654, 1234, 765, 123, 89]
+sortedNums2 = selectionSort(nums)
+print(sortedNums2)
